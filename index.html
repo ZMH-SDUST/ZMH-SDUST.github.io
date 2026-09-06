@@ -302,6 +302,33 @@
         text-transform: uppercase;
       }
 
+      .about-card {
+        border: 1px solid rgb(255 255 255 / 22%);
+        border-radius: 8px;
+        background: rgb(255 253 250 / 12%);
+        padding: 18px;
+      }
+
+      .about-card h3 {
+        color: #fff;
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+
+      .about-card ul {
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .about-card li {
+        color: rgb(255 255 255 / 78%);
+        font-size: 0.94rem;
+        line-height: 1.55;
+      }
+
       .hero-foot {
         display: flex;
         flex-wrap: wrap;
@@ -398,8 +425,73 @@
         margin-top: 20px;
       }
 
+      .paper-scroll {
+        max-height: 820px;
+        overflow-y: auto;
+        padding-right: 8px;
+        scrollbar-color: var(--blue) var(--soft);
+      }
+
+      .year-group {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgb(255 253 250 / 70%);
+        box-shadow: var(--shadow);
+      }
+
+      .year-group + .year-group {
+        margin-top: 14px;
+      }
+
+      .year-group summary {
+        min-height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        cursor: pointer;
+        list-style: none;
+        padding: 0 18px;
+        color: var(--blue-dark);
+        font-weight: 850;
+      }
+
+      .year-group summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .year-group summary::after {
+        content: "+";
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        color: var(--blue);
+        font-size: 1.05rem;
+      }
+
+      .year-group[open] summary::after {
+        content: "-";
+      }
+
+      .year-count {
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .year-papers {
+        display: grid;
+        gap: 12px;
+        padding: 0 14px 14px;
+      }
+
       .paper {
         padding: 19px;
+        box-shadow: none;
       }
 
       .paper-head {
@@ -432,20 +524,10 @@
       }
 
       .paper-meta {
-        min-width: 82px;
+        min-width: 74px;
         display: grid;
         gap: 8px;
         justify-items: end;
-      }
-
-      .cites {
-        border-radius: 8px;
-        background: var(--soft);
-        padding: 6px 9px;
-        color: var(--blue-dark);
-        font-size: 0.8rem;
-        font-weight: 850;
-        white-space: nowrap;
       }
 
       .paper-link {
@@ -592,7 +674,7 @@
             </a>
             <span>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-              72 citations, h-index 6, i10-index 2
+              Computer Vision · Multimedia · Generative Modeling
             </span>
           </div>
 
@@ -611,32 +693,28 @@
             <div>
               <p class="kicker">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4v4"/><path d="M10 14 19 5"/><path d="M19 10v9H5V5h9"/></svg>
-                Academic Homepage
+                About Me
               </p>
               <h2 id="hero-title">
-                Computer vision and multimedia intelligence for real-world
-                visual understanding.
+                Hi, I am Minghao Zou.
               </h2>
               <p class="lead">
-                My research focuses on visual perception, procedural task video
-                understanding, human-object interaction, quality assessment,
-                and scene parsing for complex environments.
+                I am currently affiliated with Cardiff University. My research
+                interests include computer vision, multimedia, generative
+                modeling, and quality of experience. I work on visual
+                understanding problems such as procedural task videos,
+                human-object interaction, physics experiment scene parsing, and
+                quality assessment for AI-generated visual media.
               </p>
             </div>
-            <div class="stat-grid" aria-label="Google Scholar statistics">
-              <div class="metric">
-                <strong>72</strong>
-                <span>Citations</span>
-              </div>
-              <div class="metric">
-                <strong>6</strong>
-                <span>h-index</span>
-              </div>
-              <div class="metric">
-                <strong>2</strong>
-                <span>i10-index</span>
-              </div>
-            </div>
+            <aside class="about-card" aria-label="Research focus">
+              <h3>Research Focus</h3>
+              <ul>
+                <li>Visual parsing and representation learning for complex scenes</li>
+                <li>Procedural activity understanding and process mining from video</li>
+                <li>Quality modeling for AI-generated images and videos</li>
+              </ul>
+            </aside>
           </div>
           <div class="hero-foot" aria-label="Research areas">
             <span class="research-pill">Computer Vision</span>
@@ -721,173 +799,331 @@
             <h2>Selected publications</h2>
           </div>
 
-          <div class="paper-list">
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2026</p>
-                  <h3>Pose-Guided Multi-Cue Explicit Query Construction for Disambiguating Human-Object Interactions</h3>
-                </div>
-                <div class="paper-meta">
-                  <span class="cites">Cited by 3</span>
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:eQOLeE2rZwMC">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">M Zou, S Liu, Q Zeng, X Zhang, G Yuan, X Hao, J Liu, W Zhou</p>
-              <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology, 2026</p>
-            </article>
+          <div class="paper-list paper-scroll">
+            <details class="year-group" open>
+              <summary>
+                <span>2026</span>
+                <span class="year-count">10 papers</span>
+              </summary>
+              <div class="year-papers">
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>Pose-Guided Multi-Cue Explicit Query Construction for Disambiguating Human-Object Interactions</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:eQOLeE2rZwMC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">M Zou, S Liu, Q Zeng, X Zhang, G Yuan, X Hao, J Liu, W Zhou</p>
+                  <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2026</p>
-                  <h3>Modeling Scientific Experiment Scenes: Dataset and Model</h3>
-                </div>
-                <div class="paper-meta">
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:3fE2CSJIrl8C">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">M Zou, Q Zeng, S Liu, C Liu, PL Rosin, G Yue, J Liu, W Zhou</p>
-              <p class="venue">arXiv preprint arXiv:2608.02892, 2026</p>
-            </article>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>Modeling Scientific Experiment Scenes: Dataset and Model</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:3fE2CSJIrl8C">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">M Zou, Q Zeng, S Liu, C Liu, PL Rosin, G Yue, J Liu, W Zhou</p>
+                  <p class="venue">arXiv preprint arXiv:2608.02892, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2026</p>
-                  <h3>PhysScene: A Scene Graph Dataset for Scientific Visual Reasoning in Physics Experiments</h3>
-                </div>
-                <div class="paper-meta">
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:kNdYIx-mwKoC">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">M Zou, Q Zeng, S Liu, Y Meng, G Yue, B Zhao, AE Saddik, W Zhou</p>
-              <p class="venue">Proceedings of the 34rd ACM International Conference on Multimedia, 2026</p>
-            </article>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>SBE-Former: Spatial Mixture-of-Experts with Boundary Enhancement for Instance Segmentation in Physics Laboratory Scenes</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:5nxA0vEk-isC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">Xingkai Bai, Shangkun Liu, Minghao Zou, Hua Duan, Qingtian Zeng</p>
+                  <p class="venue">PRCV 2026, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2026</p>
-                  <h3>Comparison Drives Preference: Reference-Aware Modeling for AI-Generated Video Quality Assessment</h3>
-                </div>
-                <div class="paper-meta">
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:WF5omc3nYNoC">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">M Zou, G Liu, G Yue, B Zhao, Z Wang, PL Rosin, H Liu, W Zhou</p>
-              <p class="venue">arXiv preprint arXiv:2604.17074, 2026</p>
-            </article>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>Cross-modal interaction for multi-dimensional AI-generated image quality assessment</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:8k81kl-MbHgC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">H Zhang, M Zou, P Rosin, H Liu, W Zhou</p>
+                  <p class="venue">2026 18th International Conference on Quality of Multimedia Experience, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2025</p>
-                  <h3>PhysLab: A benchmark dataset for multi-granularity visual parsing of physics experiments</h3>
-                </div>
-                <div class="paper-meta">
-                  <span class="cites">Cited by 4</span>
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:YsMSGLbcyi4C">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">M Zou, Q Zeng, Y Miao, S Liu, Z Wang, H Liu, W Zhou</p>
-              <p class="venue">Proceedings of the 33rd ACM International Conference on Multimedia, 12799-12806, 2025</p>
-            </article>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>Digital human generation for games via tightness-aware multi-cue modeling</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:0EnyYjriUFMC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">J Wu, Y Liu, J Guo, Y Meng, H Yu, J Zhang, M Zou, W Zhou, J Liu, L Song</p>
+                  <p class="venue">IEEE Transactions on Games, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2024</p>
-                  <h3>Weakly-supervised action learning in procedural task videos via process knowledge decomposition</h3>
-                </div>
-                <div class="paper-meta">
-                  <span class="cites">Cited by 14</span>
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:2osOgNQ5qMEC">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">M Zou, Q Zeng, X Zhang</p>
-              <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology 34 (7), 5575-5588, 2024</p>
-            </article>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>PhysScene: A Scene Graph Dataset for Scientific Visual Reasoning in Physics Experiments</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:kNdYIx-mwKoC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">M Zou, Q Zeng, S Liu, Y Meng, G Yue, B Zhao, AE Saddik, W Zhou</p>
+                  <p class="venue">Proceedings of the 34rd ACM International Conference on Multimedia, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2024</p>
-                  <h3>Prediction of remaining execution time of business processes with multiperson collaboration in assembly line production</h3>
-                </div>
-                <div class="paper-meta">
-                  <span class="cites">Cited by 8</span>
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:zYLM7Y9cAGgC">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">M Zou, Q Zeng, C Liu, R Cao, S Chen, Z Zhao</p>
-              <p class="venue">IEEE Transactions on Computational Social Systems 12 (3), 1279-1295, 2024</p>
-            </article>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>A Nature-Inspired Edge-Cloud Collaborative Privacy Framework for Visual Relocalization on Consumer Electronics</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:_FxGoFyzp5QC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">Yujin Kuang, Jiang Liu, Minghao Zou, Yang Liu, Jing Liu, Yuan Yang, Xiaoguo ...</p>
+                  <p class="venue">IEEE Transactions on Consumer Electronics, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2024</p>
-                  <h3>TV-ALP: A log dataset of television assembly line production under multi-person collaboration for process mining research</h3>
-                </div>
-                <div class="paper-meta">
-                  <span class="cites">Cited by 5</span>
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:qjMakFHDy7sC">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">M Zou, Q Zeng, H Duan, W Ni, S Chen</p>
-              <p class="venue">Applied Intelligence 54 (5), 3990-4011, 2024</p>
-            </article>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>Query-specific context-enhanced representation learning for temporal knowledge graph reasoning</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:ufrVoPGSRksC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">Y Gao, Q Zeng, W Ni, C Cheng, H Duan, M Zou, Z Wang</p>
+                  <p class="venue">ICASSP 2026, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2024</p>
-                  <h3>FFCSLT: a deep learning model for traffic Police hand gesture recognition using surface electromyographic signals</h3>
-                </div>
-                <div class="paper-meta">
-                  <span class="cites">Cited by 9</span>
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:9yKSN-GCB0IC">Scholar</a>
-                </div>
-              </div>
-              <p class="authors">W Ma, G Song, Q Zeng, H Zhang, M Zou, Z Zhao</p>
-              <p class="venue">IEEE Sensors Journal 24 (8), 13640-13655, 2024</p>
-            </article>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>Conjugate relation modeling for few-shot knowledge graph completion</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:W7OEmFMy1HYC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">Z Wang, Q Zeng, H Duan, C Cheng, M Zou, Z Wang</p>
+                  <p class="venue">ICASSP 2026, 2026</p>
+                </article>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2024</p>
-                  <h3>Rtsds: a real-time and efficient method for detecting surface defects in strip steel</h3>
-                </div>
-                <div class="paper-meta">
-                  <span class="cites">Cited by 8</span>
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:UeHWp8X0CEIC">Scholar</a>
-                </div>
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2026</p>
+                      <h3>Comparison Drives Preference: Reference-Aware Modeling for AI-Generated Video Quality Assessment</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:WF5omc3nYNoC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">M Zou, G Liu, G Yue, B Zhao, Z Wang, PL Rosin, H Liu, W Zhou</p>
+                  <p class="venue">arXiv preprint arXiv:2604.17074, 2026</p>
+                </article>
               </div>
-              <p class="authors">Q Zeng, D Wei, M Zou</p>
-              <p class="venue">Journal of Real-Time Image Processing 21 (4), 117, 2024</p>
-            </article>
+            </details>
 
-            <article class="paper">
-              <div class="paper-head">
-                <div>
-                  <p class="year">2023</p>
-                  <h3>Video process mining and model matching for intelligent development: Conformance checking</h3>
-                </div>
-                <div class="paper-meta">
-                  <span class="cites">Cited by 7</span>
-                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:d1gkVwhDpl0C">Scholar</a>
-                </div>
+            <details class="year-group" open>
+              <summary>
+                <span>2025</span>
+                <span class="year-count">1 paper</span>
+              </summary>
+              <div class="year-papers">
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2025</p>
+                      <h3>PhysLab: A benchmark dataset for multi-granularity visual parsing of physics experiments</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:YsMSGLbcyi4C">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">M Zou, Q Zeng, Y Miao, S Liu, Z Wang, H Liu, W Zhou</p>
+                  <p class="venue">Proceedings of the 33rd ACM International Conference on Multimedia, 12799-12806, 2025</p>
+                </article>
               </div>
-              <p class="authors">S Chen, M Zou, R Cao, Z Zhao, Q Zeng</p>
-              <p class="venue">Sensors 23 (8), 3812, 2023</p>
-            </article>
+            </details>
+
+            <details class="year-group">
+              <summary>
+                <span>2024</span>
+                <span class="year-count">6 papers</span>
+              </summary>
+              <div class="year-papers">
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2024</p>
+                      <h3>Weakly-supervised action learning in procedural task videos via process knowledge decomposition</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:2osOgNQ5qMEC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">M Zou, Q Zeng, X Zhang</p>
+                  <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology 34 (7), 5575-5588, 2024</p>
+                </article>
+
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2024</p>
+                      <h3>FFCSLT: a deep learning model for traffic Police hand gesture recognition using surface electromyographic signals</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:9yKSN-GCB0IC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">W Ma, G Song, Q Zeng, H Zhang, M Zou, Z Zhao</p>
+                  <p class="venue">IEEE Sensors Journal 24 (8), 13640-13655, 2024</p>
+                </article>
+
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2024</p>
+                      <h3>Prediction of remaining execution time of business processes with multiperson collaboration in assembly line production</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:zYLM7Y9cAGgC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">M Zou, Q Zeng, C Liu, R Cao, S Chen, Z Zhao</p>
+                  <p class="venue">IEEE Transactions on Computational Social Systems 12 (3), 1279-1295, 2024</p>
+                </article>
+
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2024</p>
+                      <h3>Rtsds: a real-time and efficient method for detecting surface defects in strip steel</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:UeHWp8X0CEIC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">Q Zeng, D Wei, M Zou</p>
+                  <p class="venue">Journal of Real-Time Image Processing 21 (4), 117, 2024</p>
+                </article>
+
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2024</p>
+                      <h3>TV-ALP: A log dataset of television assembly line production under multi-person collaboration for process mining research</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:qjMakFHDy7sC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">M Zou, Q Zeng, H Duan, W Ni, S Chen</p>
+                  <p class="venue">Applied Intelligence 54 (5), 3990-4011, 2024</p>
+                </article>
+
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2024</p>
+                      <h3>A teacher-guided early-learning method for medical image segmentation from noisy labels</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:IjCSPb-OGe4C">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">S Liu, M Zou, N Liu, Y Li, W Zheng</p>
+                  <p class="venue">Complex & Intelligent Systems 10 (6), 8011-8026, 2024</p>
+                </article>
+              </div>
+            </details>
+
+            <details class="year-group">
+              <summary>
+                <span>2023</span>
+                <span class="year-count">2 papers</span>
+              </summary>
+              <div class="year-papers">
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2023</p>
+                      <h3>MFAM-Net: a surface defect detection network for strip steel via multiscale feature fusion and attention mechanism</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:u-x6o8ySG0sC">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">Q Zeng, D Wei, X Zhang, Q Gan, Q Wang, M Zou</p>
+                  <p class="venue">2023 International Conference on New Trends in Computational Intelligence, 2023</p>
+                </article>
+
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2023</p>
+                      <h3>Video process mining and model matching for intelligent development: Conformance checking</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:d1gkVwhDpl0C">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">S Chen, M Zou, R Cao, Z Zhao, Q Zeng</p>
+                  <p class="venue">Sensors 23 (8), 3812, 2023</p>
+                </article>
+              </div>
+            </details>
+
+            <details class="year-group">
+              <summary>
+                <span>2022</span>
+                <span class="year-count">1 paper</span>
+              </summary>
+              <div class="year-papers">
+                <article class="paper">
+                  <div class="paper-head">
+                    <div>
+                      <p class="year">2022</p>
+                      <h3>Design and implementation of traffic police hand gesture recognition system based on surface electromyographic signals</h3>
+                    </div>
+                    <div class="paper-meta">
+                      <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:u5HHmVD_uO8C">Scholar</a>
+                    </div>
+                  </div>
+                  <p class="authors">W Ma, Q Zeng, G Song, M Zou</p>
+                  <p class="venue">2022 IEEE 5th Advanced Information Management, Communicates, Electronic and Automation Control Conference, 2022</p>
+                </article>
+              </div>
+            </details>
           </div>
 
           <p class="source">
             Source: Google Scholar public profile, fetched on September 6,
-            2026. Citation counts may change over time.
+            2026. Use the year headers to expand or collapse publication groups.
           </p>
         </section>
 
