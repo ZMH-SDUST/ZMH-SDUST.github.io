@@ -92,25 +92,6 @@
         font-weight: 650;
       }
 
-      .scholar-link {
-        min-height: 40px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--paper);
-        padding: 0 13px;
-        color: var(--ink);
-        font-size: 0.92rem;
-        font-weight: 800;
-        box-shadow: 0 2px 12px rgb(25 35 38 / 5%);
-      }
-
-      .scholar-link:hover {
-        border-color: var(--blue);
-      }
-
       .wrap {
         width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
@@ -183,6 +164,42 @@
         margin-top: 12px;
         color: var(--muted);
         font-size: 0.95rem;
+      }
+
+      .email-box {
+        margin-top: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgb(236 230 217 / 55%);
+        padding: 12px;
+      }
+
+      .email-title {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .email-links {
+        display: grid;
+        gap: 6px;
+        margin-top: 9px;
+        font-size: 0.92rem;
+        line-height: 1.35;
+      }
+
+      .email-links a {
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+
+      .email-links a:hover {
+        color: var(--blue);
       }
 
       .profile-list {
@@ -352,23 +369,49 @@
 
       .section-title {
         display: grid;
-        gap: 8px;
+        gap: 0;
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
         color: var(--blue);
-        font-size: 0.79rem;
+        font-size: 1.18rem;
         font-weight: 850;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+
+      .section-title .icon {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
       }
 
       .section-title h2 {
         font-size: 2rem;
         line-height: 1.18;
+      }
+
+      .about-copy {
+        max-width: 920px;
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 1.06rem;
+        line-height: 1.85;
+      }
+
+      .about-copy strong {
+        color: var(--ink);
+        font-weight: 850;
+      }
+
+      .about-copy a {
+        color: var(--blue-dark);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
       }
 
       .themes {
@@ -404,11 +447,14 @@
 
       .notes {
         margin-top: 20px;
-        overflow: hidden;
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--paper);
         box-shadow: var(--shadow);
+        scrollbar-color: var(--blue) var(--soft);
       }
 
       .note {
@@ -546,6 +592,10 @@
         margin-top: 20px;
       }
 
+      .service-card {
+        margin-top: 20px;
+      }
+
       .mini-card {
         padding: 19px;
       }
@@ -632,17 +682,11 @@
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="#top">Minghao Zou</a>
         <div class="navlinks">
-          <a href="#research">Research</a>
-          <a href="#updates">Updates</a>
+          <a href="#about">About Me</a>
+          <a href="#news">News</a>
           <a href="#publications">Publications</a>
-          <a href="#profile">Profile</a>
+          <a href="#service">Service</a>
         </div>
-        <a
-          class="scholar-link"
-          href="https://scholar.google.com.hk/citations?user=Z4dJMwkAAAAJ&hl=zh-CN&oi=ao"
-        >
-          Google Scholar
-        </a>
       </nav>
     </header>
 
@@ -656,9 +700,16 @@
             <div>
               <h1 id="profile-name">Minghao Zou</h1>
               <p class="affiliation">Cardiff University</p>
-              <p class="bio">
-               zouminghao97@163.com;
-              </p>
+              <div class="email-box" aria-label="Email addresses">
+                <p class="email-title">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                  Email
+                </p>
+                <div class="email-links">
+                  <a href="mailto:zoum1@cardiff.ac.uk">zoum1@cardiff.ac.uk</a>
+                  <a href="mailto:zouminghao97@163.com">zouminghao97@163.com</a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -667,109 +718,44 @@
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
               Cardiff University
             </span>
-            <a href="https://scholar.google.com.hk/citations?user=Z4dJMwkAAAAJ&hl=zh-CN&oi=ao">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/></svg>
-              Google Scholar profile
-            </a>
             <span>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
               Computer Vision · Multimedia · Generative Modeling
             </span>
           </div>
-
-          <div class="tags" aria-label="Scholar research interests">
-            <span class="tag">Computer Vision</span>
-            <span class="tag">Multimedia</span>
-            <span class="tag">Generative Modeling</span>
-            <span class="tag">Quality of Experience</span>
-          </div>
         </section>
       </aside>
 
       <main class="main">
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-visual">
-            <div>
-              <p class="kicker">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4v4"/><path d="M10 14 19 5"/><path d="M19 10v9H5V5h9"/></svg>
-                About Me
-              </p>
-              <h2 id="hero-title">
-                Hi, I am Minghao Zou.
-              </h2>
-              <p class="lead">
-                I am currently affiliated with Cardiff University. My research
-                interests include computer vision, multimedia, generative
-                modeling, and quality of experience. I work on visual
-                understanding problems such as procedural task videos,
-                human-object interaction, physics experiment scene parsing, and
-                quality assessment for AI-generated visual media.
-              </p>
-            </div>
-            <aside class="about-card" aria-label="Research focus">
-              <h3>Research Focus</h3>
-              <ul>
-                <li>Visual parsing and representation learning for complex scenes</li>
-                <li>Procedural activity understanding and process mining from video</li>
-                <li>Quality modeling for AI-generated images and videos</li>
-              </ul>
-            </aside>
-          </div>
-          <div class="hero-foot" aria-label="Research areas">
-            <span class="research-pill">Computer Vision</span>
-            <span class="research-pill">Multimedia</span>
-            <span class="research-pill">Generative Modeling</span>
-            <span class="research-pill">Quality of Experience</span>
-          </div>
-        </section>
-
-        <section id="research">
+        <section id="about">
           <div class="section-title">
             <p class="eyebrow">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
-              Research
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+              About Me
             </p>
-            <h2>Research interests from Google Scholar</h2>
           </div>
-          <div class="themes">
-            <article class="theme">
-              <h3>Computer Vision</h3>
-              <p>
-                Visual parsing, recognition, scene graph construction, and
-                representation learning for complex visual scenes.
-              </p>
-            </article>
-            <article class="theme">
-              <h3>Multimedia</h3>
-              <p>
-                Video understanding, process mining from visual streams, and
-                multimodal quality assessment.
-              </p>
-            </article>
-            <article class="theme">
-              <h3>Generative Modeling</h3>
-              <p>
-                Modeling and evaluation of AI-generated images, videos, and
-                digital human content.
-              </p>
-            </article>
-            <article class="theme">
-              <h3>Quality of Experience</h3>
-              <p>
-                Human-centered metrics and reference-aware assessment for
-                generated multimedia quality.
-              </p>
-            </article>
-          </div>
+          <p class="about-copy">
+            I am a Ph.D. student at <strong>Cardiff University</strong>,
+            supervised by
+            <strong><a href="https://scholar.google.com/citations?user=vbR9_cgAAAAJ&hl=en">Prof. Wei Zhou</a></strong>
+            and
+            <strong><a href="https://scholar.google.com/citations?user=V5E7JXsAAAAJ&hl=en">Prof. Paul Rosin</a></strong>.
+            In 2026, I received my Master’s degrees from
+            <strong>Southeast University</strong> and
+            <strong>Monash University</strong>. During my master’s studies, I
+            was a member of the <strong>PALM Lab</strong> and was supervised by
+            <strong><a href="https://scholar.google.com/citations?user=EnDCJKMAAAAJ&hl=en">Prof. Yi Zhou</a></strong>.
+            My research interests include computer vision, visual generation,
+            multimodal learning, and post-training.
+          </p>
         </section>
 
-        <section id="updates">
+        <section id="news">
           <div class="section-title">
             <p class="eyebrow">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M2 12h20"/><path d="m5 7-3 5 3 5"/><path d="m19 7 3 5-3 5"/></svg>
-              Updates
+              News
             </p>
-            <h2>Recent work</h2>
           </div>
           <div class="notes">
             <p class="note">
@@ -795,7 +781,6 @@
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H7"/><path d="M5 21h12a2 2 0 0 0 2-2V7"/><path d="M5 21a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h12"/></svg>
               Publications
             </p>
-            <h2>Selected publications</h2>
           </div>
 
           <div class="paper-list paper-scroll">
@@ -1121,37 +1106,28 @@
           </div>
 
           <p class="source">
-            Source: Google Scholar public profile, fetched on September 6,
+            Source: public academic profile data, fetched on September 6,
             2026. Use the year headers to expand or collapse publication groups.
           </p>
         </section>
 
-        <section id="profile">
+        <section id="service">
           <div class="section-title">
             <p class="eyebrow">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
-              Profile
+              Service
             </p>
-            <h2>Academic snapshot</h2>
           </div>
-          <div class="two-col">
-            <article class="mini-card">
-              <h3>Research pattern</h3>
-              <p>
-                The publication list centers on visual understanding in
-                procedural tasks, industrial scenes, physics laboratory scenes,
-                human-object interaction, and generated-media quality.
-              </p>
-            </article>
-            <article class="mini-card">
-              <h3>Next details to add</h3>
-              <p>
-                Add your homepage URL, email, ORCID, GitHub, CV, education, and
-                a short first-person biography when you want the page to become
-                fully publication-ready.
-              </p>
-            </article>
-          </div>
+          <article class="mini-card service-card">
+            <h3>Academic service and community</h3>
+            <p>
+              I am interested in contributing to the computer vision and
+              multimedia research community through reviewing, dataset
+              development, open research resources, teaching assistance, and
+              professional activities. More service details can be added here as
+              the homepage is updated.
+            </p>
+          </article>
         </section>
       </main>
     </div>
