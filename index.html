@@ -1,11 +1,924 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Minghao Zou</title>
-</head>
-<body>
-    <h1>Minghao Zou</h1>
-    <p>Welcome to my academic homepage.</p>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Minghao Zou | Academic Homepage</title>
+    <meta
+      name="description"
+      content="Academic homepage for Minghao Zou, Cardiff University. Research interests include computer vision, multimedia, generative modeling, and quality of experience."
+    />
+    <style>
+      :root {
+        --bg: #f6f4ef;
+        --paper: #fffdfa;
+        --ink: #192326;
+        --muted: #5d6769;
+        --line: #ddd7cb;
+        --soft: #ece6d9;
+        --blue: #2f6f95;
+        --blue-dark: #204f6d;
+        --green: #427463;
+        --gold: #b98226;
+        --shadow: 0 18px 45px rgb(25 35 38 / 8%);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(90deg, rgb(47 111 149 / 6%) 0 1px, transparent 1px),
+          linear-gradient(180deg, rgb(47 111 149 / 5%) 0 1px, transparent 1px),
+          var(--bg);
+        background-size: 28px 28px;
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--blue);
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgb(246 244 239 / 92%);
+        backdrop-filter: blur(16px);
+      }
+
+      .nav {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 15px 0;
+      }
+
+      .brand {
+        color: var(--blue-dark);
+        font-size: 0.85rem;
+        font-weight: 850;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .navlinks {
+        display: flex;
+        gap: 24px;
+        color: var(--muted);
+        font-size: 0.94rem;
+        font-weight: 650;
+      }
+
+      .scholar-link {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 0 13px;
+        color: var(--ink);
+        font-size: 0.92rem;
+        font-weight: 800;
+        box-shadow: 0 2px 12px rgb(25 35 38 / 5%);
+      }
+
+      .scholar-link:hover {
+        border-color: var(--blue);
+      }
+
+      .wrap {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: 34px;
+        padding: 34px 0 56px;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 90px;
+        align-self: start;
+      }
+
+      .profile,
+      .hero,
+      .metric,
+      .theme,
+      .paper,
+      .note,
+      .mini-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .profile {
+        padding: 20px;
+      }
+
+      .photo {
+        width: 148px;
+        height: 188px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--soft);
+      }
+
+      .photo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        margin-top: 18px;
+        font-size: 1.8rem;
+        line-height: 1.15;
+        letter-spacing: 0;
+      }
+
+      .affiliation {
+        margin-top: 8px;
+        color: var(--blue-dark);
+        font-weight: 750;
+      }
+
+      .bio {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .profile-list {
+        display: grid;
+        gap: 11px;
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .profile-list a,
+      .profile-list span {
+        display: flex;
+        gap: 9px;
+        align-items: flex-start;
+      }
+
+      .icon {
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+        color: var(--blue);
+        margin-top: 2px;
+      }
+
+      .tags {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--blue-dark);
+        padding: 6px 9px;
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
+      .main {
+        display: grid;
+        gap: 40px;
+      }
+
+      .hero {
+        overflow: hidden;
+      }
+
+      .hero-visual {
+        min-height: 238px;
+        padding: 34px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 265px;
+        gap: 30px;
+        align-items: end;
+        color: #f8fbfc;
+        background:
+          radial-gradient(circle at 85% 16%, rgb(180 130 38 / 75%), transparent 0 8%, transparent 22%),
+          radial-gradient(circle at 78% 72%, rgb(66 116 99 / 58%), transparent 0 18%, transparent 35%),
+          linear-gradient(135deg, #122932, #245a77 46%, #416f65);
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: rgb(255 255 255 / 82%);
+        font-size: 0.8rem;
+        font-weight: 850;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        max-width: 760px;
+        margin-top: 12px;
+        font-size: clamp(2.05rem, 4.2vw, 3.8rem);
+        line-height: 1.02;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin-top: 18px;
+        color: rgb(255 255 255 / 82%);
+        font-size: 1.06rem;
+        line-height: 1.78;
+      }
+
+      .stat-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .metric {
+        background: rgb(255 253 250 / 12%);
+        border-color: rgb(255 255 255 / 22%);
+        box-shadow: none;
+        padding: 14px;
+      }
+
+      .metric strong {
+        display: block;
+        color: #fff;
+        font-size: 1.45rem;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 7px;
+        color: rgb(255 255 255 / 72%);
+        font-size: 0.76rem;
+        font-weight: 850;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .hero-foot {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 18px 22px;
+        border-top: 1px solid var(--line);
+      }
+
+      .research-pill {
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--blue-dark);
+        padding: 7px 10px;
+        font-size: 0.86rem;
+        font-weight: 800;
+      }
+
+      section {
+        scroll-margin-top: 90px;
+      }
+
+      .section-title {
+        display: grid;
+        gap: 8px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--blue);
+        font-size: 0.79rem;
+        font-weight: 850;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        line-height: 1.18;
+      }
+
+      .themes {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      .theme {
+        padding: 18px;
+      }
+
+      .theme h3,
+      .mini-card h3 {
+        font-size: 1.02rem;
+        line-height: 1.35;
+      }
+
+      .theme p,
+      .mini-card p,
+      .paper p,
+      .note {
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.72;
+      }
+
+      .theme p,
+      .mini-card p {
+        margin-top: 9px;
+      }
+
+      .notes {
+        margin-top: 20px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .note {
+        padding: 16px 20px;
+      }
+
+      .note + .note {
+        border-top: 1px solid var(--line);
+      }
+
+      .paper-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      .paper {
+        padding: 19px;
+      }
+
+      .paper-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .year {
+        color: var(--blue);
+        font-size: 0.92rem;
+        font-weight: 850;
+      }
+
+      .paper h3 {
+        margin-top: 5px;
+        font-size: 1.08rem;
+        line-height: 1.42;
+      }
+
+      .paper .authors {
+        margin-top: 10px;
+      }
+
+      .venue {
+        margin-top: 7px;
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .paper-meta {
+        min-width: 82px;
+        display: grid;
+        gap: 8px;
+        justify-items: end;
+      }
+
+      .cites {
+        border-radius: 8px;
+        background: var(--soft);
+        padding: 6px 9px;
+        color: var(--blue-dark);
+        font-size: 0.8rem;
+        font-weight: 850;
+        white-space: nowrap;
+      }
+
+      .paper-link {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 6px 9px;
+        font-size: 0.82rem;
+        font-weight: 850;
+        white-space: nowrap;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      .mini-card {
+        padding: 19px;
+      }
+
+      .source {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 980px) {
+        .wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+        }
+
+        .profile-top {
+          display: flex;
+          align-items: flex-start;
+          gap: 18px;
+        }
+
+        h1 {
+          margin-top: 0;
+        }
+
+        .hero-visual,
+        .themes,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 680px) {
+        .nav,
+        .wrap {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .navlinks {
+          display: none;
+        }
+
+        .profile-top {
+          display: block;
+        }
+
+        h1 {
+          margin-top: 16px;
+        }
+
+        .hero-visual {
+          padding: 24px;
+        }
+
+        .stat-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .paper-head {
+          display: grid;
+        }
+
+        .paper-meta {
+          justify-items: start;
+        }
+
+        .photo {
+          width: 132px;
+          height: 168px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top">Minghao Zou</a>
+        <div class="navlinks">
+          <a href="#research">Research</a>
+          <a href="#updates">Updates</a>
+          <a href="#publications">Publications</a>
+          <a href="#profile">Profile</a>
+        </div>
+        <a
+          class="scholar-link"
+          href="https://scholar.google.com.hk/citations?user=Z4dJMwkAAAAJ&hl=zh-CN&oi=ao"
+        >
+          Google Scholar
+        </a>
+      </nav>
+    </header>
+
+    <div id="top" class="wrap">
+      <aside class="sidebar">
+        <section class="profile" aria-labelledby="profile-name">
+          <div class="profile-top">
+            <div class="photo">
+              <img src="profile-photo.jpg" alt="Portrait of Minghao Zou" />
+            </div>
+            <div>
+              <h1 id="profile-name">Minghao Zou</h1>
+              <p class="affiliation">Cardiff University</p>
+              <p class="bio">
+                Researcher working across computer vision, multimedia,
+                generative modeling, and quality of experience.
+              </p>
+            </div>
+          </div>
+
+          <div class="profile-list">
+            <span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
+              Cardiff University
+            </span>
+            <a href="https://scholar.google.com.hk/citations?user=Z4dJMwkAAAAJ&hl=zh-CN&oi=ao">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/></svg>
+              Google Scholar profile
+            </a>
+            <span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+              72 citations, h-index 6, i10-index 2
+            </span>
+          </div>
+
+          <div class="tags" aria-label="Scholar research interests">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Multimedia</span>
+            <span class="tag">Generative Modeling</span>
+            <span class="tag">Quality of Experience</span>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-visual">
+            <div>
+              <p class="kicker">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4v4"/><path d="M10 14 19 5"/><path d="M19 10v9H5V5h9"/></svg>
+                Academic Homepage
+              </p>
+              <h2 id="hero-title">
+                Computer vision and multimedia intelligence for real-world
+                visual understanding.
+              </h2>
+              <p class="lead">
+                My research focuses on visual perception, procedural task video
+                understanding, human-object interaction, quality assessment,
+                and scene parsing for complex environments.
+              </p>
+            </div>
+            <div class="stat-grid" aria-label="Google Scholar statistics">
+              <div class="metric">
+                <strong>72</strong>
+                <span>Citations</span>
+              </div>
+              <div class="metric">
+                <strong>6</strong>
+                <span>h-index</span>
+              </div>
+              <div class="metric">
+                <strong>2</strong>
+                <span>i10-index</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-foot" aria-label="Research areas">
+            <span class="research-pill">Computer Vision</span>
+            <span class="research-pill">Multimedia</span>
+            <span class="research-pill">Generative Modeling</span>
+            <span class="research-pill">Quality of Experience</span>
+          </div>
+        </section>
+
+        <section id="research">
+          <div class="section-title">
+            <p class="eyebrow">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              Research
+            </p>
+            <h2>Research interests from Google Scholar</h2>
+          </div>
+          <div class="themes">
+            <article class="theme">
+              <h3>Computer Vision</h3>
+              <p>
+                Visual parsing, recognition, scene graph construction, and
+                representation learning for complex visual scenes.
+              </p>
+            </article>
+            <article class="theme">
+              <h3>Multimedia</h3>
+              <p>
+                Video understanding, process mining from visual streams, and
+                multimodal quality assessment.
+              </p>
+            </article>
+            <article class="theme">
+              <h3>Generative Modeling</h3>
+              <p>
+                Modeling and evaluation of AI-generated images, videos, and
+                digital human content.
+              </p>
+            </article>
+            <article class="theme">
+              <h3>Quality of Experience</h3>
+              <p>
+                Human-centered metrics and reference-aware assessment for
+                generated multimedia quality.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="updates">
+          <div class="section-title">
+            <p class="eyebrow">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M2 12h20"/><path d="m5 7-3 5 3 5"/><path d="m19 7 3 5-3 5"/></svg>
+              Updates
+            </p>
+            <h2>Recent work</h2>
+          </div>
+          <div class="notes">
+            <p class="note">
+              2026 work includes pose-guided human-object interaction,
+              scientific experiment scene modeling, PhysScene, and
+              reference-aware AI-generated video quality assessment.
+            </p>
+            <p class="note">
+              2025 PhysLab paper appears in the Proceedings of the ACM
+              International Conference on Multimedia.
+            </p>
+            <p class="note">
+              2024 publications span procedural task video learning, assembly
+              line process prediction, strip steel defect detection, and
+              medical image segmentation from noisy labels.
+            </p>
+          </div>
+        </section>
+
+        <section id="publications">
+          <div class="section-title">
+            <p class="eyebrow">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H7"/><path d="M5 21h12a2 2 0 0 0 2-2V7"/><path d="M5 21a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h12"/></svg>
+              Publications
+            </p>
+            <h2>Selected publications</h2>
+          </div>
+
+          <div class="paper-list">
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2026</p>
+                  <h3>Pose-Guided Multi-Cue Explicit Query Construction for Disambiguating Human-Object Interactions</h3>
+                </div>
+                <div class="paper-meta">
+                  <span class="cites">Cited by 3</span>
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:eQOLeE2rZwMC">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">M Zou, S Liu, Q Zeng, X Zhang, G Yuan, X Hao, J Liu, W Zhou</p>
+              <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology, 2026</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2026</p>
+                  <h3>Modeling Scientific Experiment Scenes: Dataset and Model</h3>
+                </div>
+                <div class="paper-meta">
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:3fE2CSJIrl8C">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">M Zou, Q Zeng, S Liu, C Liu, PL Rosin, G Yue, J Liu, W Zhou</p>
+              <p class="venue">arXiv preprint arXiv:2608.02892, 2026</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2026</p>
+                  <h3>PhysScene: A Scene Graph Dataset for Scientific Visual Reasoning in Physics Experiments</h3>
+                </div>
+                <div class="paper-meta">
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:kNdYIx-mwKoC">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">M Zou, Q Zeng, S Liu, Y Meng, G Yue, B Zhao, AE Saddik, W Zhou</p>
+              <p class="venue">Proceedings of the 34rd ACM International Conference on Multimedia, 2026</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2026</p>
+                  <h3>Comparison Drives Preference: Reference-Aware Modeling for AI-Generated Video Quality Assessment</h3>
+                </div>
+                <div class="paper-meta">
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:WF5omc3nYNoC">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">M Zou, G Liu, G Yue, B Zhao, Z Wang, PL Rosin, H Liu, W Zhou</p>
+              <p class="venue">arXiv preprint arXiv:2604.17074, 2026</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2025</p>
+                  <h3>PhysLab: A benchmark dataset for multi-granularity visual parsing of physics experiments</h3>
+                </div>
+                <div class="paper-meta">
+                  <span class="cites">Cited by 4</span>
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:YsMSGLbcyi4C">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">M Zou, Q Zeng, Y Miao, S Liu, Z Wang, H Liu, W Zhou</p>
+              <p class="venue">Proceedings of the 33rd ACM International Conference on Multimedia, 12799-12806, 2025</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2024</p>
+                  <h3>Weakly-supervised action learning in procedural task videos via process knowledge decomposition</h3>
+                </div>
+                <div class="paper-meta">
+                  <span class="cites">Cited by 14</span>
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:2osOgNQ5qMEC">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">M Zou, Q Zeng, X Zhang</p>
+              <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology 34 (7), 5575-5588, 2024</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2024</p>
+                  <h3>Prediction of remaining execution time of business processes with multiperson collaboration in assembly line production</h3>
+                </div>
+                <div class="paper-meta">
+                  <span class="cites">Cited by 8</span>
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:zYLM7Y9cAGgC">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">M Zou, Q Zeng, C Liu, R Cao, S Chen, Z Zhao</p>
+              <p class="venue">IEEE Transactions on Computational Social Systems 12 (3), 1279-1295, 2024</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2024</p>
+                  <h3>TV-ALP: A log dataset of television assembly line production under multi-person collaboration for process mining research</h3>
+                </div>
+                <div class="paper-meta">
+                  <span class="cites">Cited by 5</span>
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:qjMakFHDy7sC">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">M Zou, Q Zeng, H Duan, W Ni, S Chen</p>
+              <p class="venue">Applied Intelligence 54 (5), 3990-4011, 2024</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2024</p>
+                  <h3>FFCSLT: a deep learning model for traffic Police hand gesture recognition using surface electromyographic signals</h3>
+                </div>
+                <div class="paper-meta">
+                  <span class="cites">Cited by 9</span>
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:9yKSN-GCB0IC">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">W Ma, G Song, Q Zeng, H Zhang, M Zou, Z Zhao</p>
+              <p class="venue">IEEE Sensors Journal 24 (8), 13640-13655, 2024</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2024</p>
+                  <h3>Rtsds: a real-time and efficient method for detecting surface defects in strip steel</h3>
+                </div>
+                <div class="paper-meta">
+                  <span class="cites">Cited by 8</span>
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:UeHWp8X0CEIC">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">Q Zeng, D Wei, M Zou</p>
+              <p class="venue">Journal of Real-Time Image Processing 21 (4), 117, 2024</p>
+            </article>
+
+            <article class="paper">
+              <div class="paper-head">
+                <div>
+                  <p class="year">2023</p>
+                  <h3>Video process mining and model matching for intelligent development: Conformance checking</h3>
+                </div>
+                <div class="paper-meta">
+                  <span class="cites">Cited by 7</span>
+                  <a class="paper-link" href="https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=Z4dJMwkAAAAJ&citation_for_view=Z4dJMwkAAAAJ:d1gkVwhDpl0C">Scholar</a>
+                </div>
+              </div>
+              <p class="authors">S Chen, M Zou, R Cao, Z Zhao, Q Zeng</p>
+              <p class="venue">Sensors 23 (8), 3812, 2023</p>
+            </article>
+          </div>
+
+          <p class="source">
+            Source: Google Scholar public profile, fetched on September 6,
+            2026. Citation counts may change over time.
+          </p>
+        </section>
+
+        <section id="profile">
+          <div class="section-title">
+            <p class="eyebrow">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+              Profile
+            </p>
+            <h2>Academic snapshot</h2>
+          </div>
+          <div class="two-col">
+            <article class="mini-card">
+              <h3>Research pattern</h3>
+              <p>
+                The publication list centers on visual understanding in
+                procedural tasks, industrial scenes, physics laboratory scenes,
+                human-object interaction, and generated-media quality.
+              </p>
+            </article>
+            <article class="mini-card">
+              <h3>Next details to add</h3>
+              <p>
+                Add your homepage URL, email, ORCID, GitHub, CV, education, and
+                a short first-person biography when you want the page to become
+                fully publication-ready.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
